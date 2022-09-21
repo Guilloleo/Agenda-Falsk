@@ -1,0 +1,64 @@
+{% extends "./base.html"%}
+
+{% block title %} Agenda {% endblock %}
+
+
+{% block body %}
+<div class="row">  
+  <div class="card col-4">          
+    {% include './mensajes.html'%}  
+
+    <div class="card-body p-4">
+          <form action="/agregar" method="POST">
+
+              <div class="mb-3">               
+                  <label for="nombres">Ingrese su nombre:</label>
+                  <input type="text" name="nombres" placeholder="Ingrese su nombre">
+              </div>
+              
+              <div class="mb-3">
+                  <label for="correo">Ingrese su correo: </label>
+                  <input type="email" name="correo" placeholder="Ingrese su correo">
+              </div>
+
+              <div class="mb-3">
+                  <label for="telefono">Ingrese su Telefono:</label>
+                  <input type="text" name="telefono" placeholder="Ingrese su Telefono">
+              </div>
+              
+              <button class="btn btn-primary">Guardar</button>                    
+          </form>
+    </div>
+  </div>
+
+
+  <div class="col-md-7">
+    <h2>Listado de Contactos</h2>       
+    <div class="table-responsive py-2">
+        <table class="table table-striped">
+            <thead>
+                <tr>                        
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Opciones</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for contacto in contactos%}
+                  <tr>
+                      <td>{{contacto[1] }}</td>
+                      <td>{{contacto[2] }}</td>
+                      <td>{{contacto[3] }}</td>                                                               
+                      <td><a href="{{ url_for('actualizar', contacto_id=contacto.0)}}" class="btn btn-warning">Editar</a></td>
+                      <td><a href="{{ url_for('eliminar', contacto_id=contacto.0)}}" class="btn btn-danger">Eliminar</a></td>
+                  </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+ </div>
+{% endblock %}
+              
+ 

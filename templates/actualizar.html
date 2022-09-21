@@ -1,0 +1,29 @@
+{% extends "./base.html"%}
+
+{% block title %} Editar {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <form action="" method="POST">
+
+            <div class="mb-3">               
+                <label for="nombres">Ingrese su nombre:</label>
+                <input type="text" name="nombres" value="{{contacto.1}}">
+            </div>
+            
+            <div class="mb-3">
+                <label for="correo">Ingrese su correo: </label>
+                <input type="email" name="correo" value="{{contacto.2}}">
+            </div>
+
+            <div class="mb-3">
+                <label for="telefono">Ingrese su Telefono:</label>
+                <input type="text" name="telefono" value="{{contacto.3}}">
+            </div>
+            
+            <button class="btn btn-primary">Editar</button>                    
+        </form>
+    </div>
+</div>
+{% endblock %}
