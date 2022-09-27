@@ -6,10 +6,10 @@ app = Flask(__name__)
 app.secret_key = 'clave_secreta_flask'
 
 # Conexion DB
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'    
-app.config['MYSQL_PASSWORD'] = 'Guillo79*'
-app.config['MYSQL_DB'] = 'agenda'
+app.config['MYSQL_HOST'] = 'XXXXXX'
+app.config['MYSQL_USER'] = 'XXXXX'    
+app.config['MYSQL_PASSWORD'] = 'XXXXX'
+app.config['MYSQL_DB'] = 'XXXXX'
 
 mysql = MySQL(app)
 
